@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+auth.json
+*.key
+*.pem
+
+# Codex local state and logs
+.codex/auth.json
+.codex/logs_*.sqlite*
+.codex/state_*.sqlite*
+.codex/*.sqlite*
+logs_*.sqlite*
+state_*.sqlite*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

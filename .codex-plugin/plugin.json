@@ -1,0 +1,34 @@
+{
+  "name": "codex-usage-meter",
+  "version": "0.2.1",
+  "description": "Refresh Codex CLI usage limits and expose the latest rate-limit snapshot as JSON, Markdown, and an MCP tool.",
+  "author": {
+    "name": "sharrana130"
+  },
+  "homepage": "https://github.com/sharrana130/codex-usage-query-for-hermes",
+  "repository": "https://github.com/sharrana130/codex-usage-query-for-hermes",
+  "keywords": [
+    "hermes",
+    "codex",
+    "usage",
+    "rate-limits",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Usage Meter",
+    "shortDescription": "Refresh and read Codex usage-limit snapshots",
+    "longDescription": "Codex Usage Meter runs a minimal read-only Codex CLI request on demand, then parses Codex rate-limit events from the local Codex log database and exposes the latest 5-hour and weekly usage windows to Hermes or other MCP clients. It does not read or print Codex auth tokens.",
+    "developerName": "sharrana130",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "/codex用量",
+      "/codex-usage",
+      "Refresh and show my latest local Codex usage-limit snapshot"
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

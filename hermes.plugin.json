@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "name": "codex-usage-meter",
+  "display_name": "Codex Usage Meter",
+  "version": "0.2.1",
+  "description": "Refresh Codex CLI and read the latest local Codex rate-limit snapshot for Hermes without opening the Codex app.",
+  "homepage": "https://github.com/sharrana130/codex-usage-query-for-hermes",
+  "repository": "https://github.com/sharrana130/codex-usage-query-for-hermes",
+  "keywords": [
+    "hermes",
+    "codex",
+    "usage",
+    "rate-limits",
+    "mcp"
+  ],
+  "entrypoints": {
+    "cli_json": {
+      "command": "python3",
+      "args": ["scripts/codex_usage_meter.py", "--refresh", "--format", "json"]
+    },
+    "cli_markdown": {
+      "command": "python3",
+      "args": ["scripts/codex_usage_meter.py", "--refresh", "--format", "markdown"]
+    },
+    "mcp_stdio": {
+      "command": "python3",
+      "args": ["scripts/mcp_server.py"]
+    }
+  },
+  "tools": [
+    {
+      "name": "get_codex_usage",
+      "description": "Run a minimal Codex CLI refresh and return the latest local Codex 5-hour and weekly usage-limit snapshot."
+    }
+  ],
+  "commands": [
+    {
+      "name": "/codex用量",
+      "description": "刷新并查看 Codex 剩余用量。",
+      "tool": "get_codex_usage",
+      "arguments": {
+        "refresh": true,
+        "output_format": "markdown"
+      }
+    },
+    {
+      "name": "/codex-usage",
+      "description": "Refresh and show Codex usage limits.",
+      "tool": "get_codex_usage",
+      "arguments": {
+        "refresh": true,
+        "output_format": "markdown"
+      }
+    }
+  ],
+  "shortcuts": [
+    {
+      "trigger": "/codex用量",
+      "tool": "get_codex_usage",
+      "arguments": {
+        "refresh": true,
+        "output_format": "markdown"
+      }
+    },
+    {
+      "trigger": "/codex-usage",
+      "tool": "get_codex_usage",
+      "arguments": {
+        "refresh": true,
+        "output_format": "markdown"
+      }
+    }
+  ],
+  "slash_commands": [
+    {
+      "command": "/codex用量",
+      "tool": "get_codex_usage",
+      "arguments": {
+        "refresh": true,
+        "output_format": "markdown"
+      }
+    },
+    {
+      "command": "/codex-usage",
+      "tool": "get_codex_usage",
+      "arguments": {
+        "refresh": true,
+        "output_format": "markdown"
+      }
+    }
+  ],
+  "permissions": {
+    "filesystem": "read-only",
+    "reads": ["CODEX_HOME/logs_*.sqlite"],
+    "does_not_read": ["CODEX_HOME/auth.json"]
+  }
+}

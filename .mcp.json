@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "codex-usage-meter": {
+      "cwd": ".",
+      "command": "python3",
+      "args": [
+        "./scripts/mcp_server.py"
+      ],
+      "note": "The get_codex_usage tool refreshes by default with codex exec, then reads local Codex rate-limit logs."
+    }
+  }
+}
